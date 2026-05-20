@@ -19,8 +19,6 @@ This project is designed as a **YouTube video series** that walks you through:
 ✅ **MVVM Architecture** - Clean separation of Model, View, and ViewModel  
 ✅ **WPF UI** - Modern user interface using Windows Presentation Foundation  
 ✅ **Civil 3D Integration** - Seamless interaction with Civil 3D APIs  
-✅ **Multi-Version Support** - Compatible with Civil 3D 2023, 2024, and 2025  
-✅ **Ribbon Commands** - Custom ribbon buttons and commands  
 
 ---
 
