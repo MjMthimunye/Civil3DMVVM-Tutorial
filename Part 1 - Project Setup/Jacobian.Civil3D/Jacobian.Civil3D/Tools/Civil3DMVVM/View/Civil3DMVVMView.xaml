@@ -1,0 +1,64 @@
+﻿<Window x:Class="Jacobian.Civil3D.Tools.Civil3DMVVM.View.Civil3DMVVMView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jacobian.Civil3D.Tools.Civil3DMVVM.View"
+        mc:Ignorable="d"
+        Height="785" Width="640"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="White"
+        FontFamily="Segoe UI"
+        WindowStyle="SingleBorderWindow">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Title bar -->
+        <Border Grid.Row="0" Background="#111827">
+            <Grid Margin="16,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0"
+                       Source="/Jacobian.Civil3D;component/Resources/Images/jdWhite.png"
+                       Height="24"
+                       Margin="0,0,12,0"
+                       VerticalAlignment="Center"
+                       RenderOptions.BitmapScalingMode="HighQuality" />
+                <TextBlock Grid.Column="1"
+                           Text="Civil 3D MVVM Tutorial"
+                           Foreground="White"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+
+        <!-- Tab content -->
+        <TabControl Grid.Row="1"
+                    Margin="12"
+                    Style="{StaticResource ModernTabControl}">
+            
+            <!-- Civil Inputs -->
+            <TabItem Header="CIVIL INPUTS" Style="{StaticResource ModernTabItem}">
+                
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

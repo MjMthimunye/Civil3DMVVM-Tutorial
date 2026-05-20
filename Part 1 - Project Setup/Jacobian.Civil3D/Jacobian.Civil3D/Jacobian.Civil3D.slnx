@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="DebugV23" />
+    <BuildType Name="DebugV24" />
+    <BuildType Name="DebugV25" />
+    <BuildType Name="ReleaseV23" />
+    <BuildType Name="ReleaseV24" />
+    <BuildType Name="ReleaseV25" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="Jacobian.Civil3D.csproj">
+    <BuildType Solution="ReleaseV23|*" Project="DebugV25" />
+    <Platform Project="x64" />
+  </Project>
+</Solution>
