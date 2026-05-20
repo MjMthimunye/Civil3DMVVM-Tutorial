@@ -140,7 +140,7 @@ Jacobian.Civil3D/
 
 ## 📖 Resources
 
-- [Civil 3D API Documentation](https://help.autodesk.com/view/CIVILDOC/)
+- [Civil 3D API Documentation](https://help.autodesk.com/view/CIVILDOC/](https://civapidocs.com/))
 - [WPF Data Binding Documentation](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/data-binding-overview)
 - [MVVM Pattern Guide](https://www.telerik.com/blogs/mvvm-pattern-guide)
 - [C# Design Patterns](https://refactoring.guru/design-patterns/csharp)
