@@ -6,9 +6,8 @@ Welcome to the **Jacobian.Civil3D** project! This is a comprehensive tutorial de
 
 This project is designed as a **YouTube video series** that walks you through:
 - Building a professional Civil 3D plugin from scratch
-- Implementing the MVVM pattern in a Revit-like plugin architecture
+- Implementing the MVVM pattern
 - Creating responsive WPF user interfaces integrated with Civil 3D
-- Best practices for plugin development
 
 ---
 
