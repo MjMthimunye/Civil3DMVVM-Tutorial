@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage
+    SchemaVersion="1.0"
+    Name="JacobianCivil3D"
+    AppVersion="1.0.0.0"
+    ProductCode="{25B19057-9B16-4F0A-A4A4-A63BABD94AFF}">
+
+	<CompanyDetails Name="Jacobian" />
+
+	<Components Description="Jacobian Dev — Civil 3D 2023">
+		<RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R23.0" SeriesMax="R23.9" />
+		<ComponentEntry
+		  AppName="Jacobian Dev plugin"
+		  Version="1.0.0.0"
+		  ModuleName="./Contents/2023/Jacobian.Civil3D.dll"
+		  AppDescription="Civil 3D MVVM plugin — Jacobian Dev."
+		  LoadOnAutoCADStartup="True" />
+	</Components>
+
+	<Components Description="Jacobian Dev — Civil 3D 2024">
+		<RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R24.0" SeriesMax="R24.9" />
+		<ComponentEntry
+		  AppName="Jacobian Dev plugin"
+		  Version="1.0.0.0"
+		  ModuleName="./Contents/2024/Jacobian.Civil3D.dll"
+		  AppDescription="Civil 3D MVVM plugin — Jacobian Dev."
+		  LoadOnAutoCADStartup="True" />
+	</Components>
+
+	<Components Description="Jacobian Dev — Civil 3D 2025">
+		<RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R25.0" SeriesMax="R25.9"/>
+		<ComponentEntry
+		  AppName="Jacobian Dev plugin"
+		  Version="1.0.0.0"
+		  ModuleName="./Contents/2025/Jacobian.Civil3D.dll"
+		  AppDescription="Civil 3D MVVM plugin — Jacobian Dev."
+		  LoadOnAutoCADStartup="True" />
+	</Components>
+
+</ApplicationPackage>

@@ -1,0 +1,199 @@
+﻿<Window x:Class="Jacobian.Civil3D.Tools.Civil3DMVVM.View.Civil3DMVVMView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jacobian.Civil3D.Tools.Civil3DMVVM.View"
+        mc:Ignorable="d"
+        Height="785" Width="640"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="White"
+        FontFamily="Segoe UI"
+        WindowStyle="SingleBorderWindow">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary> 
+    </Window.Resources>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Title bar -->
+        <Border Grid.Row="0" Background="#111827">
+            <Grid Margin="16,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0"
+                       Source="/Jacobian.Civil3D;component/Resources/Images/jdWhite.png"
+                       Height="24"
+                       Margin="0,0,12,0"
+                       VerticalAlignment="Center"
+                       RenderOptions.BitmapScalingMode="HighQuality" />
+                <TextBlock Grid.Column="1"
+                           Text="Civil 3D MVVM Tutorial"
+                           Foreground="White"
+                           FontSize="13"
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+
+        <!-- Tab content -->
+        <TabControl Grid.Row="1"
+                    Margin="12"
+                    Style="{StaticResource ModernTabControl}">
+            
+            <!-- Civil Inputs -->
+            <TabItem Header="CIVIL INPUTS" Style="{StaticResource ModernTabItem}">
+                <StackPanel Margin="2,8,2,8">
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="CORRIDOR" Style="{StaticResource CardLabel}"/>
+                            <TextBlock Text="Select the main corridor for this operation"
+                                       Style="{StaticResource CardSubLabel}"/>
+                            <TextBox Margin="0,8,0,0"
+                                     Style="{StaticResource ModernTextBox}"
+                                     Text="{Binding CorridorFilterString, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListBox ItemsSource="{Binding InputCorridors}"
+                                     SelectedItem="{Binding SelectedInputCorridor}"
+                                     DisplayMemberPath="Name"
+                                     Style="{StaticResource ModernListBox}"
+                                     Height="120" Margin="0,6,0,0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="BASELINES" Style="{StaticResource CardLabel}"/>
+                            <TextBlock Text="Populated automatically when a corridor is selected"
+                                       Style="{StaticResource CardSubLabel}"/>
+                            <Grid Height="100" Margin="0,8,0,0">
+                                <Border>
+                                    <Border.Style>
+                                        <Style TargetType="Border" BasedOn="{StaticResource PlaceholderBorder}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding SelectedInputCorridor}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style> 
+                                    </Border.Style>
+                                    <TextBlock Text="Select a corridor above to load baselines"
+                                               Style="{StaticResource PlaceholderText}"/>
+                                </Border>
+                                <ListBox ItemsSource="{Binding InputBaselines}"
+                                         SelectedItem="{Binding SelectedInputBaseline}"
+                                         DisplayMemberPath="Name">
+                                    <ListBox.Style>
+                                        <Style TargetType="ListBox" BasedOn="{StaticResource ModernListBox}">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding SelectedInputCorridor}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ListBox.Style>
+                                </ListBox>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="BASELINE FEATURE LINES" Style="{StaticResource CardLabel}"/>
+                            <TextBlock Text="Populated automatically when a baseline is selected" Style="{StaticResource CardSubLabel}"/>
+                            <Grid Height="130" Margin="0,8,0,0">
+                                <Border>
+                                    <Border.Style>
+                                        <Style TargetType="Border" BasedOn="{StaticResource PlaceholderBorder}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding SelectedInputBaseline}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Border.Style>
+                                    <TextBlock Text="Select a baseline above to load feature lines"
+                                               Style="{StaticResource PlaceholderText}"/>
+                                </Border>
+                                <ListBox ItemsSource="{Binding InputBaselineFeatureLines}"
+                                         SelectedItem="{Binding SelectedInputBaselineFeatureLine}"
+                                         DisplayMemberPath="Name">
+                                    <ListBox.Style>
+                                        <Style TargetType="ListBox" BasedOn="{StaticResource ModernListBox}">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding SelectedInputBaseline}" Value="{x:Null}">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ListBox.Style>
+                                </ListBox>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="BLOCKS" Style="{StaticResource ModernTabItem}">
+                <Grid Margin="2,8,2,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0" Style="{StaticResource Card}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            
+                            <TextBlock Grid.Row="0" Text="DRAWING BLOCKS" Style="{StaticResource CardLabel}"/>
+                            <TextBlock Grid.Row="1"
+                                       Text="Block definitions in this drawing (as in the Insert menu)"
+                                       Style="{StaticResource CardSubLabel}" />
+                            <TextBox Grid.Row="2" Margin="0,8,0,6"
+                                     Style="{StaticResource ModernTextBox}"
+                                     Text="{Binding BlockSignageFilterString, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListBox Grid.Row="3"
+                                     ItemsSource="{Binding Blocks}"
+                                     SelectedItem="{Binding SelectedBlock}"
+                                     DisplayMemberPath="Name"
+                                     Style="{StaticResource ModernListBox}" />
+                        </Grid>
+                    </Border>
+
+                    <Button Grid.Row="1" Margin="0,0,0,8"
+                            Content="Place Selected Block"
+                            Command="{Binding PlaceBlockCommand}"
+                            Style="{StaticResource PrimaryButton}" />
+
+                    <Border Grid.Row="2" Padding="12,7"
+                            Background="White" CornerRadius="6"
+                            BorderBrush="AntiqueWhite" BorderThickness="1">
+                        <TextBlock Foreground="#6B7280" FontSize="11"
+                                   Text="{Binding Blocks.Count, StringFormat='{}Showing {0} block definition(s) in this drawing'}"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
