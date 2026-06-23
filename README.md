@@ -177,6 +177,8 @@ This tutorial is complete through Part 4. Each part is available in its own fold
 
 Subscribe to see the complete video series breaking down each component step-by-step!
 
+Watch on YouTube: https://www.youtube.com/@jacobiandev
+
 ---
 
 ## 📄 License
