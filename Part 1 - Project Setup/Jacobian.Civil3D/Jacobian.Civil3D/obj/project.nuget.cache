@@ -1,15 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "vc3zSBtn80Y=",
+  "dgSpecHash": "EwHVLaWLwPU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mjmth\\OneDrive\\Documents\\Jacobian.Civil3D\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj",
+  "projectFilePath": "C:\\Users\\mjmth\\OneDrive\\Desktop\\MJ\\Jacobian\\Civil3DMVVM-Tutorial\\Part 1 - Project Setup\\Jacobian.Civil3D\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mjmth\\.nuget\\packages\\chuongmep.civil3d.api.accoremgd\\2025.0.0\\chuongmep.civil3d.api.accoremgd.2025.0.0.nupkg.sha512",
-    "C:\\Users\\mjmth\\.nuget\\packages\\chuongmep.civil3d.api.acdbmgd\\2025.0.0\\chuongmep.civil3d.api.acdbmgd.2025.0.0.nupkg.sha512",
-    "C:\\Users\\mjmth\\.nuget\\packages\\chuongmep.civil3d.api.acmgd\\2025.0.0\\chuongmep.civil3d.api.acmgd.2025.0.0.nupkg.sha512",
-    "C:\\Users\\mjmth\\.nuget\\packages\\chuongmep.civil3d.api.adwindows\\2025.0.0\\chuongmep.civil3d.api.adwindows.2025.0.0.nupkg.sha512",
-    "C:\\Users\\mjmth\\.nuget\\packages\\chuongmep.civil3d.api.aecbasemgd\\2025.0.0\\chuongmep.civil3d.api.aecbasemgd.2025.0.0.nupkg.sha512",
-    "C:\\Users\\mjmth\\.nuget\\packages\\chuongmep.civil3d.api.aeccdbmgd\\2025.0.0\\chuongmep.civil3d.api.aeccdbmgd.2025.0.0.nupkg.sha512",
     "C:\\Users\\mjmth\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512"
   ],
   "logs": []

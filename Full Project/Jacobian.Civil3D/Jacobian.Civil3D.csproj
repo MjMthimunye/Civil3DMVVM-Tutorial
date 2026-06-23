@@ -1,0 +1,117 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<UseWindowsForms>true</UseWindowsForms>
+		<UseWPF>true</UseWPF>
+		<Platforms>x64</Platforms>
+		<Version>1.0.0.0</Version>
+		<Configurations>DebugV23;DebugV24;DebugV25;ReleaseV23;ReleaseV24;ReleaseV25</Configurations>
+	</PropertyGroup>
+
+	<!-- Civil3D Version Setups -->
+	<PropertyGroup Condition="$(Configuration.Contains('V23'))">
+		<TargetFramework>net48</TargetFramework>
+		<SoftwareVersion>2023</SoftwareVersion>
+		<Civil3DApiVersion>2023.0.0</Civil3DApiVersion>
+		<DefineConstants>V23</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(Configuration.Contains('V24'))">
+		<TargetFramework>net48</TargetFramework>
+		<SoftwareVersion>2024</SoftwareVersion>
+		<Civil3DApiVersion>2024.0.0</Civil3DApiVersion>
+		<DefineConstants>V24</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(Configuration.Contains('V25'))">
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<SoftwareVersion>2025</SoftwareVersion>
+		<Civil3DApiVersion>2025.0.0</Civil3DApiVersion>
+		<DefineConstants>V25</DefineConstants>
+	</PropertyGroup>
+
+	<!-- Launch settings -->
+	<PropertyGroup>
+		<StartAction>Program</StartAction>
+		<StartProgram>C:\Program Files\Autodesk\AutoCAD $(SoftwareVersion)\acad.exe</StartProgram>
+		<StartArgument>/ld "C:\Program Files\Autodesk\AutoCAD $(SoftwareVersion)\AecBase.dbx" /product C3D /language en-US</StartArgument>
+	</PropertyGroup>
+
+	<!-- NuGet packages -->
+	<ItemGroup Condition="'$(Civil3DApiVersion)' != ''">
+		<PackageReference Include="Chuongmep.Civil3D.Api.accoremgd" Version="$(Civil3DApiVersion)" />
+		<PackageReference Include="Chuongmep.Civil3D.Api.acdbmgd" Version="$(Civil3DApiVersion)" />
+		<PackageReference Include="Chuongmep.Civil3D.Api.acmgd" Version="$(Civil3DApiVersion)" />
+		<PackageReference Include="Chuongmep.Civil3D.Api.AecBaseMgd" Version="$(Civil3DApiVersion)" />
+		<PackageReference Include="Chuongmep.Civil3D.Api.AeccDbMgd" Version="$(Civil3DApiVersion)" />
+		<PackageReference Include="Chuongmep.Civil3D.Api.AdWindows" Version="$(Civil3DApiVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\jdWhite.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Resources\Images\jdWhite.png" />
+	</ItemGroup>
+
+	<!-- Build directory structure -->
+	<PropertyGroup>
+		<AssemblyProduct>JacobianC3D</AssemblyProduct>
+		<BundlesDir>$(MSBuildProjectDirectory)\..\_bundles\</BundlesDir>
+		<SolutionFolder>$(MSBuildProjectDirectory)\..</SolutionFolder>
+		<BundleName>$(AssemblyProduct).bundle</BundleName>
+		<BundleFolder>$(BundlesDir)$(BundleName)\</BundleFolder>
+		<ContentsFolder>$(BundleFolder)Contents\$(SoftwareVersion)\</ContentsFolder>
+		<DebugDeploymentDir>$(APPDATA)\Autodesk\ApplicationPlugins\</DebugDeploymentDir>
+		<AutoGenerateBindingRedirects>False</AutoGenerateBindingRedirects>
+	</PropertyGroup>
+
+	<!-- Targets -->
+	<Target Name="PrepareBundle" BeforeTargets="Build">
+		<Message Text="Creating bundle structure in $(BundleFolder) for Civil3D $(SoftwareVersion)" Importance="high" />
+		<RemoveDir Directories="$(BundleFolder)" Condition="Exists('$(BundleFolder)') AND $(Configuration.Contains('Debug'))" />
+		<MakeDir Directories="$(BundleFolder)" Condition="!Exists('$(BundleFolder)')" />
+		<MakeDir Directories="$(ContentsFolder)" Condition="!Exists('$(ContentsFolder)')" />
+	</Target>
+
+	<Target Name="CopyIconToContentsFolder" AfterTargets="CopyFilesToBundle">
+		<Copy SourceFiles="Resources\IconImages\JacobianWhite.ico" DestinationFolder="$(ContentsFolder)" SkipUnchangedFiles="true" />
+	</Target>
+
+	<Target Name="CopyJdWhiteContentsFolder" AfterTargets="CopyFilesToBundle">
+		<Copy SourceFiles="Resources\Images\jdWhite.png" DestinationFolder="$(ContentsFolder)" SkipUnchangedFiles="true" />
+	</Target>
+
+	<Target Name="CopyFilesToBundle" AfterTargets="PrepareBundle">
+		<ItemGroup>
+			<Dlls Include="$(OutputPath)*.dll" />
+			<Pdbs Include="$(OutputPath)*.pdb" />
+			<Pck Include="$(MSBuildProjectDirectory)\manifest\PackageContents.xml" />
+		</ItemGroup>
+		<Copy SourceFiles="@(Dlls)" DestinationFolder="$(ContentsFolder)" />
+		<Copy SourceFiles="@(Pck)" Condition="!Exists('$(BundleFolder)\PackageContents.xml')" DestinationFolder="$(BundleFolder)" />
+		<Copy SourceFiles="@(Pdbs)" DestinationFolder="$(ContentsFolder)" />
+	</Target>
+
+	<Target Name="DeployBundleForDebug" AfterTargets="CopyFilesToBundle" Condition="$(Configuration.Contains('Debug'))">
+		<MakeDir Directories="$(DebugDeploymentDir)" Condition="!Exists('$(DebugDeploymentDir)')" />
+		<RemoveDir Directories="$(DebugDeploymentDir)$(BundleName)" Condition="Exists('$(DebugDeploymentDir)$(BundleName)')" />
+		<ItemGroup>
+			<BundleFiles Include="$(BundleFolder)\**\*.*" />
+		</ItemGroup>
+		<Copy SourceFiles="@(BundleFiles)" DestinationFolder="$(DebugDeploymentDir)$(BundleName)\%(RecursiveDir)" />
+	</Target>
+
+</Project>

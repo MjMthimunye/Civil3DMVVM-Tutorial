@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mjmth\\OneDrive\\Documents\\Jacobian.Civil3D\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj": {}
+    "C:\\Users\\mjmth\\OneDrive\\Desktop\\MJ\\Jacobian\\Civil3DMVVM-Tutorial\\Part 2 - Corridors, Baselines and Baseline feature lines\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mjmth\\OneDrive\\Documents\\Jacobian.Civil3D\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj": {
+    "C:\\Users\\mjmth\\OneDrive\\Desktop\\MJ\\Jacobian\\Civil3DMVVM-Tutorial\\Part 2 - Corridors, Baselines and Baseline feature lines\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mjmth\\OneDrive\\Documents\\Jacobian.Civil3D\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj",
+        "projectUniqueName": "C:\\Users\\mjmth\\OneDrive\\Desktop\\MJ\\Jacobian\\Civil3DMVVM-Tutorial\\Part 2 - Corridors, Baselines and Baseline feature lines\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj",
         "projectName": "Jacobian.Civil3D",
-        "projectPath": "C:\\Users\\mjmth\\OneDrive\\Documents\\Jacobian.Civil3D\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj",
+        "projectPath": "C:\\Users\\mjmth\\OneDrive\\Desktop\\MJ\\Jacobian\\Civil3DMVVM-Tutorial\\Part 2 - Corridors, Baselines and Baseline feature lines\\Jacobian.Civil3D\\Jacobian.Civil3D.csproj",
         "packagesPath": "C:\\Users\\mjmth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mjmth\\OneDrive\\Documents\\Jacobian.Civil3D\\Jacobian.Civil3D\\obj\\",
+        "outputPath": "C:\\Users\\mjmth\\OneDrive\\Desktop\\MJ\\Jacobian\\Civil3DMVVM-Tutorial\\Part 2 - Corridors, Baselines and Baseline feature lines\\Jacobian.Civil3D\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,30 +53,6 @@
           "framework": "net8.0-windows7.0",
           "targetAlias": "net8.0-windows",
           "dependencies": {
-            "Chuongmep.Civil3D.Api.AdWindows": {
-              "target": "Package",
-              "version": "[2025.0.0, )"
-            },
-            "Chuongmep.Civil3D.Api.AecBaseMgd": {
-              "target": "Package",
-              "version": "[2025.0.0, )"
-            },
-            "Chuongmep.Civil3D.Api.AeccDbMgd": {
-              "target": "Package",
-              "version": "[2025.0.0, )"
-            },
-            "Chuongmep.Civil3D.Api.accoremgd": {
-              "target": "Package",
-              "version": "[2025.0.0, )"
-            },
-            "Chuongmep.Civil3D.Api.acdbmgd": {
-              "target": "Package",
-              "version": "[2025.0.0, )"
-            },
-            "Chuongmep.Civil3D.Api.acmgd": {
-              "target": "Package",
-              "version": "[2025.0.0, )"
-            },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
               "version": "[8.4.0, )"
@@ -101,7 +77,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

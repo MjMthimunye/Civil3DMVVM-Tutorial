@@ -4,10 +4,10 @@ Welcome to the **Jacobian.Civil3D** project! This is a comprehensive tutorial de
 
 ## 📺 About This Tutorial
 
-This project is designed as a **YouTube video series** that walks you through:
-- Building a professional Civil 3D plugin from scratch
-- Implementing the MVVM pattern
-- Creating responsive WPF user interfaces integrated with Civil 3D
+This repository contains the complete tutorial series, now finished through Part 4.
+- Includes the full project implementation in `Full Project/`
+- Includes step-by-step source folders for Parts 1 through 4
+- Demonstrates Civil 3D MVVM plugin development from setup through alignments
 
 ---
 
@@ -23,6 +23,19 @@ This project is designed as a **YouTube video series** that walks you through:
 ---
 
 ## 📁 Project Structure
+
+This repository includes the finished project and the tutorial part folders.
+
+```
+Full Project/                          # Completed final project snapshot
+Part 1 - Project Setup/                # Project and plugin scaffolding
+Part 2 - Corridors, Baselines and Baseline feature lines/  # Corridor and baseline implementation
+Part 3 - Blocks/                       # Block creation and management
+Part 4 - Alignments/                   # Alignment creation and integration
+Jacobian.Civil3D/                      # Working root plugin project folder for the current branch
+```
+
+Inside the main plugin folder, the core MVVM implementation includes:
 
 ```
 Jacobian.Civil3D/
@@ -44,7 +57,7 @@ Jacobian.Civil3D/
 │   ├── Images/                       # UI images and assets
 │   └── IconImages/                   # Icon assets
 └── Manifest/
-	└── PackageContents.xml           # Civil 3D plugin manifest
+    └── PackageContents.xml           # Civil 3D plugin manifest
 ```
 
 ---
@@ -127,11 +140,27 @@ Jacobian.Civil3D/
 
 ## 📚 Tutorial Flow
 
+This tutorial is complete through Part 4. Each part is available in its own folder, with the final `Full Project/` snapshot included for quick reference.
+
 ### **Part 1: Project Setup**
 - Creating a new Civil 3D plugin project
 - Configuring multi-version support
 - Setting up project structure
 
+### **Part 2: Corridors, Baselines and Baseline Feature Lines**
+- Implementing corridor creation and editing
+- Working with baselines and feature lines
+- Integrating Civil 3D corridor workflows into MVVM
+
+### **Part 3: Blocks**
+- Creating and placing Civil 3D blocks
+- Managing block definitions and insertion logic
+- Connecting block workflows to the MVVM UI
+
+### **Part 4: Alignments**
+- Creating and editing alignments
+- Integrating alignment commands with the plugin
+- Using alignments in corridor and block workflows
 
 ---
 
